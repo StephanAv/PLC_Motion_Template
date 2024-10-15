@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="MAIN" Id="{a902c543-c0d9-4b6a-9ace-3646a5f5408f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	safety	: FB_SafetyBase;	
+
+	ax5_chA : FB_AxisBase;
+	//ax8_chA : FB_AxisBase;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[safety();
+ax5_chA();
+//ax8_chA();]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="22" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
