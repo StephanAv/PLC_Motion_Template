@@ -11,12 +11,12 @@ VAR_INPUT
 	fOverride		: LREAL := 100.0;
 END_VAR
 VAR_OUTPUT
+	axis_ref		: AXIS_REF;	
 	bAxisRdy		: BOOL;
 	bError			: BOOL;
 	nErrId			: UDINT;
 END_VAR
 VAR
-	m_axis		: AXIS_REF;	
 
 	m_fb_power 	: MC_Power;
 	m_fb_reset	: MC_Reset;
@@ -30,11 +30,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[m_fb_state(Axis:= m_axis, Enable:= TRUE);
+      <ST><![CDATA[m_fb_state(Axis:= axis_ref, Enable:= TRUE);
 
 
 m_fb_power(
-	Axis 				:= m_axis,
+	Axis 				:= axis_ref,
 	Enable 				:= bPowerEnable,
 	Override 			:= fOverride,
 	Enable_Positive 	:= bPosEnable,
@@ -42,13 +42,13 @@ m_fb_power(
 );
 	
 m_fb_reset(
-	Axis := m_axis,
+	Axis := axis_ref,
 	Execute := bReset
 	);
 
 	
 m_fb_stop(
-	Axis := m_axis,
+	Axis := axis_ref,
 	Execute := bStop,
 	);
 
@@ -62,7 +62,7 @@ nErrId 		:= m_fb_power.ErrorID OR m_fb_reset.ErrorID	OR m_fb_stop.ErrorID OR m_f
 ]]></ST>
     </Implementation>
     <LineIds Name="FB_AxisBase">
-      <LineId Id="3" Count="28" />
+      <LineId Id="87" Count="28" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
